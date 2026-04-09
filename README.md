@@ -18,7 +18,7 @@ graph TD
 
 ```mermaid
 graph LR
-    A[Scrolling job boards daily] -->|automated| B[Daily digest\nScored and delivered to Slack]
+    A[Scrolling job boards\nor repeating any search daily] -->|automated| B[Daily digest\nScored and delivered to Slack]
     C[Manual self check-in\noften forgotten] -->|automated| D[Morning routine\nSlack form, answers saved]
     E[Weekly review\nwritten manually] -->|automated| F[Weekly report\nauto-generated from notes]
     G[Context lost\nbetween AI sessions] -->|solved| H[Memory system\nhuman-curated index]
@@ -53,7 +53,7 @@ The principle: AI handles orchestration and judgment. Deterministic scripts hand
 
 ## Tech stack
 
-Python · Claude Code · Groq (LLM scoring, free tier) · Slack API · GitHub Actions (scheduling) · SQLite · Obsidian
+Python · Claude Code · LLM API of your choice (Groq, OpenAI, Anthropic — free tier sufficient for daily use) · Slack API · GitHub Actions (scheduling) · SQLite · Obsidian
 
 ## Getting started
 
