@@ -1,0 +1,26 @@
+# Core
+requests
+python-dotenv
+pyyaml
+beautifulsoup4
+
+# Slack notifications
+slack-sdk
+slack-bolt
+
+# LLM — choose one, update llm_scorer.py accordingly
+# groq              # free tier, good for getting started
+# openai            # paid
+# anthropic         # paid
+
+# Web search — choose one
+# Any search API with a Python client works (Serper, Tavily, SerpAPI, etc.)
+
+# Audio transcription (optional)
+# Any transcription API works (AssemblyAI, Whisper, Deepgram, etc.)
+sounddevice
+numpy
+feedparser
+
+# External messaging platform (optional)
+# Any platform with a Python SDK can be integrated as a source

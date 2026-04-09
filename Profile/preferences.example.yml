@@ -1,0 +1,81 @@
+# preferences.example.yml
+# Copy this file to preferences.yml and adapt to your use case.
+# This file defines how the daily digest scores and filters results.
+
+# Keywords that match your target role titles (Finnish)
+role_keywords_fi:
+  - "your role title in Finnish"
+  - "another role title"
+
+# Keywords that match your target role titles (English)
+role_keywords_en:
+  - "your role title in English"
+  - "another role title"
+
+# Industry or domain keywords that indicate a good fit
+domain_keywords:
+  - "your target industry"
+  - "relevant technology or process"
+  - "another domain signal"
+
+# Keywords that strongly indicate a relevant opportunity
+must_have_keywords:
+  - "core function of your role"
+  - "key responsibility"
+  - "relevant process or methodology"
+
+# Keywords that are a bonus but not required
+nice_to_have_keywords:
+  - "adjacent skill"
+  - "tool you know"
+  - "bonus domain signal"
+
+# Keywords that indicate a poor fit — results with these are scored down or filtered out
+avoid_keywords:
+  - "role type you want to avoid"
+  - "work arrangement you cannot accept"
+  - "compensation model that does not fit"
+
+# Target seniority level
+# Options: junior, mid, mid-to-upper-mid, senior, lead
+seniority_target: "mid"
+
+# Location preferences
+preferred_locations:
+  primary:
+    - "Your city"
+    - "Remote"
+  acceptable:
+    - "Hybrid (majority remote)"
+    - "Another city"
+  rules:
+    - "Define any hard location rules here"
+
+# Salary preferences
+salary_preferences:
+  target_salary_range_min_eur: 0
+  note: "If salary not listed → neutral (no penalty)"
+
+# Scoring weights — must add up to 100
+scoring_weights:
+  role: 30
+  domain: 20
+  must_have: 20
+  nice_to_have: 10
+  seniority: 10
+  location: 10
+
+# Score thresholds for output
+thresholds:
+  post_to_slack_min_score: 50   # minimum score to include in Slack notification
+  write_markdown_min_score: 40  # minimum score to save to markdown
+
+# Positioning — used by the LLM scorer to evaluate fit
+positioning:
+  core_identity: "Describe your professional identity in a few words"
+  not_a_fit:
+    - "role type 1"
+    - "role type 2"
+  strengths:
+    - "strength 1"
+    - "strength 2"

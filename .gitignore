@@ -1,0 +1,35 @@
+# Secrets — never commit these
+.env
+
+# Personal configuration (copy from .example files and fill in your own values)
+Profile/preferences.yml
+Profile/morning_routine.md
+
+# Runtime data
+.tmp/
+*.db
+*.sqlite
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# OAuth tokens (if using Google or similar services)
+credentials.json
+token.json
+
+# Add any service-specific token files here, for example:
+# dropbox_token.json
+# notion_token.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
