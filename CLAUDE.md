@@ -6,7 +6,7 @@
 
 LateOS is a personal AI operating system built with Claude Code. It uses the **WAT framework** (Workflows, Agents, Tools) to automate daily tasks, process information, and surface what matters.
 
-The system has three moving parts: Claude Code acts as the agent, Python scripts handle execution, and scheduling runs automatically in the background. Notes, tasks, ideas, and outputs are stored as markdown files — Obsidian is used as the interface for reading and writing those files, but the system does not depend on it.
+The system has three moving parts: Claude Code acts as the agent, Python scripts handle execution, and scheduling runs automatically in the background. Notes, tasks, ideas, and outputs are stored as markdown files — any markdown-compatible notes app works as the reading and writing interface.
 
 It is not a compiled project. There are no build steps, tests, or linting commands.
 
