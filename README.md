@@ -74,7 +74,7 @@ Python · Claude Code · LLM API of your choice (Groq, OpenAI, Anthropic, free t
 4. Copy `Profile/preferences.example.yml` to `Profile/preferences.yml` and adapt to your use case
 5. Copy `Profile/morning_routine.example.md` to `Profile/morning_routine.md` and write your own questions
 6. Open `Tools/source_example.py` and add your first source
-7. Implement the missing pieces in each script — each file has comments explaining what to build
+7. Implement the missing pieces in each script — each file has comments marking exactly what to fill in (example: swap the placeholder URL for your RSS feed, point the API call to your endpoint). The basic mistakes have already been made for you — rate limits, wrong data shapes, API quirks. The comments tell you what we ran into.
 8. Run a dry run to test: `python Tools/run_daily_digest.py --dry`
 
 For automated scheduling, see `workflows/github_actions_setup.md`.
@@ -100,4 +100,6 @@ This is a personal system, not a polished product. The code is functional and te
 
 ## Why this exists
 
-To understand where AI genuinely helps versus where human judgment is still needed. Turns out the answer is interesting.
+Repetitive tasks done manually are just deferred automation. If something happens daily, it should run itself. The lazy path and the correct path are the same: automate it once, get the result forever.
+
+This is that system.
