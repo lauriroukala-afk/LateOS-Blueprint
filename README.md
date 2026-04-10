@@ -1,3 +1,12 @@
+```
+██╗      █████╗ ████████╗███████╗ ██████╗ ███████╗
+██║     ██╔══██╗╚══██╔══╝██╔════╝██╔═══██╗██╔════╝
+██║     ███████║   ██║   █████╗  ██║   ██║███████╗
+██║     ██╔══██║   ██║   ██╔══╝  ██║   ██║╚════██║
+███████╗██║  ██║   ██║   ███████╗╚██████╔╝███████║
+╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝ ╚═════╝ ╚══════╝
+```
+
 # LateOS — Personal AI Operating System
 
 A personal productivity system built with Claude Code. No manual coding required — workflows, logic, and orchestration only.
