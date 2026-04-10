@@ -9,6 +9,8 @@
 
 # LateOS — Personal AI Operating System
 
+![Python](https://img.shields.io/badge/Python-3.11+-blue?style=flat-square) ![Claude Code](https://img.shields.io/badge/Claude-Code-orange?style=flat-square) ![License](https://img.shields.io/badge/license-CC--BY%204.0-green?style=flat-square) ![Framework](https://img.shields.io/badge/framework-WAT-purple?style=flat-square)
+
 A personal productivity system built with Claude Code. No manual coding required — workflows, logic, and orchestration only.
 
 Built to automate repetitive daily tasks, surface relevant information, and track patterns over time.
