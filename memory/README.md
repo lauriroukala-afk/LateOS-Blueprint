@@ -16,7 +16,7 @@ This is the key design decision: the index is small enough to fit in every sessi
 
 Context windows are not free. Loading everything into every session creates noise and wastes space. By keeping a lightweight index and retrieving details selectively, the system stays fast and accurate regardless of how much memory has accumulated.
 
-This mirrors the approach MemPalace later formalized with vector search. The difference here is that retrieval is human-guided rather than automated — simpler infrastructure, more control.
+This mirrors what automated memory systems (e.g. MemPalace) formalize with vector search. The difference here is that retrieval is human-guided rather than automated — simpler infrastructure, more control.
 
 ## Why not automated memory?
 

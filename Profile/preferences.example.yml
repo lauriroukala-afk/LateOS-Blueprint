@@ -1,81 +1,73 @@
 # preferences.example.yml
 # Copy this file to preferences.yml and adapt to your use case.
 # This file defines how the daily digest scores and filters results.
+# The structure below is designed for a job search digest.
+# Adapt the keyword categories and scoring weights to your own domain.
 
-# Keywords that match your target role titles (Finnish)
-role_keywords_fi:
-  - "your role title in Finnish"
-  - "another role title"
+# Keywords that match your target (role titles, topics, companies, etc.)
+primary_keywords:
+  - "your main target keyword"
+  - "another primary keyword"
 
-# Keywords that match your target role titles (English)
-role_keywords_en:
-  - "your role title in English"
-  - "another role title"
+# Secondary keywords — relevant but not the main signal
+secondary_keywords:
+  - "adjacent keyword"
+  - "related topic or technology"
+  - "another secondary signal"
 
-# Industry or domain keywords that indicate a good fit
-domain_keywords:
-  - "your target industry"
-  - "relevant technology or process"
-  - "another domain signal"
-
-# Keywords that strongly indicate a relevant opportunity
+# Keywords that strongly indicate a good result
 must_have_keywords:
-  - "core function of your role"
-  - "key responsibility"
-  - "relevant process or methodology"
+  - "core requirement"
+  - "key qualifier"
+  - "non-negotiable signal"
 
 # Keywords that are a bonus but not required
 nice_to_have_keywords:
-  - "adjacent skill"
-  - "tool you know"
-  - "bonus domain signal"
+  - "bonus signal"
+  - "adjacent skill or topic"
+  - "nice extra"
 
-# Keywords that indicate a poor fit — results with these are scored down or filtered out
+# Keywords that indicate a poor fit — results with these are scored down or filtered
 avoid_keywords:
-  - "role type you want to avoid"
-  - "work arrangement you cannot accept"
-  - "compensation model that does not fit"
+  - "signal that rules out a result"
+  - "another disqualifier"
 
-# Target seniority level
-# Options: junior, mid, mid-to-upper-mid, senior, lead
-seniority_target: "mid"
+# Optional: seniority or level filter
+# Adapt or remove if not relevant to your use case
+level_target: "mid"
 
-# Location preferences
-preferred_locations:
+# Optional: location or scope filter
+preferred_scope:
   primary:
-    - "Your city"
+    - "Your preferred location or scope"
     - "Remote"
   acceptable:
-    - "Hybrid (majority remote)"
-    - "Another city"
+    - "Acceptable alternative"
   rules:
-    - "Define any hard location rules here"
-
-# Salary preferences
-salary_preferences:
-  target_salary_range_min_eur: 0
-  note: "If salary not listed → neutral (no penalty)"
+    - "Define any hard rules here"
 
 # Scoring weights — must add up to 100
+# Adjust to reflect what matters most in your use case
 scoring_weights:
-  role: 30
-  domain: 20
+  primary: 30
+  secondary: 20
   must_have: 20
   nice_to_have: 10
-  seniority: 10
-  location: 10
+  level: 10
+  scope: 10
 
 # Score thresholds for output
 thresholds:
-  post_to_slack_min_score: 50   # minimum score to include in Slack notification
-  write_markdown_min_score: 40  # minimum score to save to markdown
+  notify_min_score: 50   # minimum score to send a notification
+  save_min_score: 40     # minimum score to save to markdown
 
 # Positioning — used by the LLM scorer to evaluate fit
+# Describe what you are looking for in plain language
 positioning:
-  core_identity: "Describe your professional identity in a few words"
+  context: "Describe what you are looking for in a few words"
   not_a_fit:
-    - "role type 1"
-    - "role type 2"
+    - "what does not qualify"
+    - "another disqualifier"
   strengths:
-    - "strength 1"
-    - "strength 2"
+    - "what signals a strong match"
+    - "another positive signal"

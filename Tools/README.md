@@ -1,46 +1,63 @@
 # Tools
 
-Python scripts that handle all execution. Each script does one thing and does it well.
+Python scripts that handle all execution in the WAT pipeline.
 
-The agent (Claude Code) never executes tasks directly — it reads workflows and calls these scripts. This keeps accuracy high: AI handles decisions, scripts handle execution.
+The agent (Claude Code) reads workflows and calls these scripts. AI handles decisions, scripts handle execution. This keeps accuracy high across multi-step pipelines.
 
-## Core pipeline
+## What's included
 
-| Script | Purpose |
-|---|---|
-| `run_daily_digest.py` | Main entry point. Orchestrates sources, scoring, and Slack notification. |
-| `scorer.py` | Keyword-based scoring. Fast first pass before LLM analysis. |
-| `llm_scorer.py` | LLM analysis via Groq. Runs on top-scoring results from scorer.py. |
-| `slack_notifier.py` | Sends results to Slack. Supports both webhook and bot API. |
-| `db.py` | SQLite deduplication. Tracks what has already been seen. |
-
-## Sources
-
-Each source script follows the same interface: fetch content, return a list of dicts with consistent fields. Scorer handles the rest.
-
-Supported source types:
-- `source_[your-site-a].py` — HTML scraper for sites with static or server-rendered content
-- `source_[your-site-b].py` — HTML scraper with detail page fetching
-- `source_search.py` — finds results on specific sites via Google (using Serper API)
-- `source_stubs.py` — placeholders for JS-rendered sites or sources with access restrictions
-
-To add a new source, follow any HTML scraper as a template. No need to touch scoring or notification logic.
-
-## Reporting and routines
+These are blueprint scripts — the structure and interfaces are complete, but the implementation details are yours to fill in. Each file has comments explaining what to build and why.
 
 | Script | Purpose |
 |---|---|
-| `generate_summary.py` | Weekly report. Parses structured notes and runs LLM analysis. |
-| `ai_news_digest.py` | Weekly digest. Fetches and summarizes relevant content via Tavily. |
-| `morning_notifier.py` | Sends a daily check-in form to Slack. |
-| `show_scores.py` | Debug tool — shows scoring breakdown for recent results. |
+| `run_daily_digest.py` | Main entry point — orchestrates sources, scoring, and notification |
+| `db.py` | SQLite deduplication — tracks what you've already seen |
+| `scorer.py` | Keyword scoring engine — fast first pass before LLM |
+| `llm_scorer.py` | LLM analysis — evaluates top results from scorer |
+| `notifier.py` | Notification delivery — adapt to Slack, Discord, email, etc. |
+| `source_example.py` | Source template — copy this for each feed you want to add |
+| `morning_notifier.py` | Morning check-in delivery |
+| `generate_summary.py` | Weekly report generator |
+| `transcribe_call.py` | Call recording, transcription, and summarization |
 
-## Optional integrations
+## Source interface
 
-| Script | Purpose |
-|---|---|
-| `slack_bot.py` | Slack bot for interactive features (buttons, modals). |
-| `slack_app.py` | Handles Slack events — button clicks, form submissions. |
-| `transcribe_call.py` | Transcribes audio files using AssemblyAI, summarizes with Groq. |
-| `voice_input.py` | Transcribes voice input via Groq Whisper. |
-| `source_discord.py` | Fetches messages from a Discord channel via bot. |
+Every source script follows the same interface: `fetch() -> list[dict]`
+
+Each result dict must have at minimum:
+- `title` (str)
+- `url` (str)
+- `source` (str)
+
+Add `description`, `published`, `location`, `company` and anything else relevant to your use case. The scorer will use whatever fields you provide.
+
+To add a source: copy `source_example.py`, rename it, implement `fetch()`.
+
+## What you bring
+
+- Your sources (job boards, RSS feeds, APIs — see `source_example.py`)
+- Your API keys in `.env` — see `.env.example`
+- Your preferences in `Profile/preferences.yml`
+- Your LLM provider (anything OpenAI-compatible works: Groq, OpenAI, Anthropic)
+- Your messaging tool credentials (Slack, Discord, Telegram, email — adapt `notifier.py`)
+
+## Running scripts
+
+```bash
+python Tools/run_daily_digest.py --dry    # test without DB writes or notifications
+python Tools/run_daily_digest.py          # full run
+python Tools/generate_summary.py --days 7
+python Tools/morning_notifier.py --force
+python Tools/transcribe_call.py recording.mp3 --title "Team meeting"
+```
+
+## Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+Optional, for live call recording:
+```bash
+pip install sounddevice numpy scipy
+```

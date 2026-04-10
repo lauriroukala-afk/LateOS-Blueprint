@@ -4,23 +4,29 @@ python-dotenv
 pyyaml
 beautifulsoup4
 
-# Slack notifications
-slack-sdk
-slack-bolt
-
-# LLM — choose one, update llm_scorer.py accordingly
+# LLM — uncomment the one you use, update llm_scorer.py accordingly
 # groq              # free tier, good for getting started
-# openai            # paid
-# anthropic         # paid
+# openai            # also works with Groq, Together, any OpenAI-compatible API
+# anthropic
 
-# Web search — choose one
-# Any search API with a Python client works (Serper, Tavily, SerpAPI, etc.)
+# Messaging platform SDK — uncomment the one you use, adapt notifier.py
+# slack-sdk         # Slack
+# slack-bolt        # Slack (interactive features: buttons, modals)
+# discord.py        # Discord
+# python-telegram-bot  # Telegram
 
-# Audio transcription (optional)
-# Any transcription API works (AssemblyAI, Whisper, Deepgram, etc.)
-sounddevice
-numpy
-feedparser
+# Search API — uncomment if using source_search.py
+# google-search-results   # SerpAPI
+# Any requests-based client works for Serper, Tavily, etc.
 
-# External messaging platform (optional)
-# Any platform with a Python SDK can be integrated as a source
+# Audio transcription — uncomment if using transcribe_call.py
+# assemblyai
+# openai            # for Whisper API
+
+# Live recording — uncomment if using --record flag in transcribe_call.py
+# sounddevice
+# numpy
+# scipy
+
+# RSS source support — uncomment if adding RSS feeds as a source
+# feedparser

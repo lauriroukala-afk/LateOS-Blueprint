@@ -8,11 +8,10 @@ Before acting, Claude Code reads the relevant workflow. This keeps the agent foc
 
 | Workflow | Purpose |
 |---|---|
-| `daily_digest.md` | Scrapes sources, scores results, sends Slack notification. |
+| `daily_digest.md` | Scrapes sources, scores results, sends notification via your messaging tool. |
 | `morning_routine.md` | Sends daily check-in, defines what to track and why. |
 | `weekly_summary.md` | Generates weekly report from structured daily notes. |
-| `transcribe_call.md` | Transcribes audio, summarizes, posts to Slack. |
-| `voice_input.md` | Captures and transcribes voice input. |
+| `transcribe_call.md` | Transcribes audio, summarizes, saves as structured note. |
 | `github_actions_setup.md` | How to schedule workflows using GitHub Actions. |
 
 ## How workflows are written

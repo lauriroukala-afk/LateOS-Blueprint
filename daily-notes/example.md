@@ -6,7 +6,7 @@ Two formats are used depending on the day type. The weekly report parser expects
 
 ## Weekday example
 
-# 2026-01-01 Keskiviikko
+# 2026-01-01 Wednesday
 
 ### 1. Priorities
 	- [ ] Priority 1
@@ -15,7 +15,7 @@ Two formats are used depending on the day type. The weekly report parser expects
 
 ### 2. Progress
 - [your tracked habit or activity]: [value or description]
-- Success criteria: - [x] [your own criteria] — Kyllä/Osittain/Ei
+- Success criteria: - [x] [your own criteria] — Yes/Partial/No
 
 ### 3. What one thing would move the day forward most?
 Free text here.
@@ -35,7 +35,7 @@ Free observations.
 
 ## Weekend example
 
-# 2026-01-04 Lauantai
+# 2026-01-04 Saturday
 
 ### 1. Tracked metrics
 - [Metric 1] (1-5): 4

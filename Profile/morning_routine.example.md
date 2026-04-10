@@ -2,7 +2,7 @@
 
 Copy this file to `morning_routine.md` and replace with your own questions.
 
-The morning check-in is sent to Slack each day via `morning_notifier.py`. Your answers are stored in daily notes and used by `generate_summary.py` for weekly pattern analysis.
+The morning check-in is sent via your messaging tool each day via `morning_notifier.py`. Your answers are stored in daily notes and used by `generate_summary.py` for weekly pattern analysis.
 
 Design your questions around what you actually want to track over time. The weekly report surfaces patterns — but only from data you collect consistently.
 
